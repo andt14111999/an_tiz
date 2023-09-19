@@ -46,7 +46,7 @@ def setup():
     llm = ChatOpenAI(
         openai_api_key=os.environ.get("OPEN_API_KEY"),
         temperature=0,
-        max_tokens=400,
+        max_tokens=1500,
         model="gpt-3.5-turbo",
     )
     streaming_llm = OpenAI(
@@ -56,12 +56,12 @@ def setup():
         temperature=0,
     )
     question_generator = LLMChain(llm=llm, prompt=CONDENSE_QUESTION_PROMPT)
-    prompt_template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+    prompt_template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer and please answer politely.
 
     {context}
 
     Question: {question}
-    Helpful Answer (in Vietnamese):"""
+    Helpful Answer (if not a question just response normally in the question original language):"""
     QA_PROMPT = PromptTemplate(
         template=prompt_template, input_variables=["context", "question"]
     )
@@ -71,7 +71,6 @@ def setup():
         retriever=db.as_retriever(),
         combine_docs_chain=doc_chain,
         question_generator=question_generator,
-        memory=memory
     )
     return qa
 
@@ -98,6 +97,8 @@ def main():
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+
+    print("st.session_state.histories", st.session_state.histories)
 
     if prompt := st.chat_input("What is up?"):
         # Display user message in chat message container
