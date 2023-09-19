@@ -3,3 +3,4 @@ python-dotenv==1.0.0
 streamlit==1.26.0
 openai==0.28.0
 llama_cpp_python==0.2.6
+faiss-cpu==1.7.4
