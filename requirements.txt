@@ -4,3 +4,4 @@ streamlit==1.26.0
 openai==0.28.0
 llama_cpp_python==0.2.6
 faiss-cpu==1.7.4
+tiktoken==0.5.1
