@@ -1,7 +1,7 @@
 *.arrow
 squad_*
 *sbert_embedded*
-*.pkl
+# *.pkl
 ckpts*
 .deepspeed_env
 *.jsonl
