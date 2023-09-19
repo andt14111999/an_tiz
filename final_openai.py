@@ -16,10 +16,13 @@ import streamlit as st
 import os
 from langchain.chains.conversational_retrieval.prompts import CONDENSE_QUESTION_PROMPT
 
-
 load_dotenv(find_dotenv())
 
-INDEX_FOLDER = "final_finhay"
+current_folder = os.getcwd()
+
+INDEX_FOLDER_NAME = "final_finhay"
+
+INDEX_FOLDER = os.path.join(current_folder, INDEX_FOLDER_NAME)
 
 
 def setup():
