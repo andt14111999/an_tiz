@@ -123,6 +123,8 @@ pypdf==3.16.0
 PyPika==0.48.9
 python-dotenv==1.0.0
 python-json-logger==2.0.7
+pytz==2023.3.post1
+pytz-deprecation-shim==0.1.0.post0
 qtconsole==5.4.4
 QtPy==2.4.0
 referencing==0.30.2
@@ -153,9 +155,9 @@ tinycss2==1.2.1
 tokenizers==0.13.3
 toml==0.10.2
 toolz==0.12.0
-torch==2.0.1
-torchaudio==2.0.2
-torchvision==0.15.2
+torch==2.2.0.dev20230915
+torchaudio==2.2.0.dev20230915
+torchvision==0.17.0.dev20230915
 tqdm==4.66.1
 transformers==4.33.2
 typing-inspect==0.9.0
